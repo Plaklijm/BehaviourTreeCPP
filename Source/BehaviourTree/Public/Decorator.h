@@ -3,13 +3,25 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Behaviour.h"
 
 /**
  * 
  */
-class BEHAVIOURTREE_API Decorator
+class BEHAVIOURTREE_API Decorator : public Behaviour
 {
 public:
-	Decorator();
+	Decorator(Behaviour* child) : Child(child) {}
 	~Decorator();
+
+	virtual void SetBlackBoard(::BlackBoard* BB) override
+	{
+		Behaviour::SetBlackBoard(BB);
+		Child->SetBlackBoard(BB);
+	}
+
+protected:
+	Behaviour* Child;
+
+
 };

@@ -3,11 +3,12 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Behaviour.h"
 
 /**
  * 
  */
-class BEHAVIOURTREE_API Patrol
+class BEHAVIOURTREE_API Patrol : public Behaviour
 {
 public:
 	Patrol();

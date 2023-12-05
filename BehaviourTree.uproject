@@ -7,7 +7,10 @@
 		{
 			"Name": "BehaviourTree",
 			"Type": "Runtime",
-			"LoadingPhase": "Default"
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"AIModule"
+			]
 		}
 	],
 	"Plugins": [
