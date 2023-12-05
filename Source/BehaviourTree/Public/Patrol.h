@@ -10,7 +10,16 @@
  */
 class BEHAVIOURTREE_API Patrol : public Behaviour
 {
+private:
+	float MoveSpeed;
+	FVector TargetPosition;
+	FString TargetPosKey;
+	
 public:
-	Patrol();
+	Patrol(float MoveSpeed, FString TargetPosKey);
 	~Patrol();
+
+protected:
+	virtual void OnInitialize() override;
+	virtual Status OnUpdate() override;
 };

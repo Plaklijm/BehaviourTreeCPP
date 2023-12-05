@@ -33,10 +33,16 @@ public:
 		BlackBoard = BB;
 	}
 
+	Status GetStatus() const
+	{
+		return EStatus;
+	}
+	
 protected:
 	virtual void OnInitialize() {};
 	virtual Status OnUpdate() = 0;
 	virtual void OnTerminate(Status) {};
+
 	
 	BlackBoard* BlackBoard;
 	
