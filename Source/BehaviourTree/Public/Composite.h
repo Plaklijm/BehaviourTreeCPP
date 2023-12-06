@@ -11,12 +11,8 @@
 class BEHAVIOURTREE_API Composite : public Behaviour
 {
 public:
-	Composite();
+	Composite(const TArray<Behaviour*>& Children) : Children(Children) {}
 	~Composite();
-
-	void AddChild(Behaviour*);
-	void RemoveChild(Behaviour*);
-	void ClearChildren();
 
 	virtual void SetBlackBoard(::BlackBoard* BB) override
 	{

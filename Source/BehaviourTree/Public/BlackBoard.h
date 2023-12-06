@@ -18,7 +18,7 @@ public:
 	T GetValue(FString key)
 	{
 		if (Data.Contains(key))
-			return Data[key];
+			return (T)Data[key];
 
 		return T();
 	}

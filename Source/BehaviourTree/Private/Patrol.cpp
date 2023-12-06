@@ -3,11 +3,15 @@
 
 #include "Patrol.h"
 
+#include "AIController.h"
+#include "Navigation/PathFollowingComponent.h"
 
-Patrol::Patrol(const float MoveSpeed, FString TargetPosKey)
+
+Patrol::Patrol(AAIController* AI, const float MoveSpeed, FString TargetPosKey)
 {
 	this->MoveSpeed = MoveSpeed;
 	this->TargetPosKey = TargetPosKey;
+	this->AI = AI;
 }
 
 Patrol::~Patrol()
@@ -22,10 +26,14 @@ void Patrol::OnInitialize()
 
 Status Patrol::OnUpdate()
 {
-	// if there isnt a agent return failed
-	// if the agent is still walking to the path return running
-	// if the agent has a path && that path is invalid return failed
-	// if the agent endpos != targetpos set destination to targetpos
+	/*if (AI == nullptr) return Failed;
+	if (AI->GetMoveStatus() == EPathFollowingStatus::Moving) return Running;
+	if (!AI->HasPartialPath()) return Failed;
+	if (AI->GetPathFollowingComponent()->GetMoveGoal()->GetActorLocation() != TargetPosition)
+	{
+		AI->MoveToLocation(TargetPosition);
+	}
+	if (AI->)*/
 	// if the distance to the endpos is smaller than the stopping distance return succes
 	return Running;
 }

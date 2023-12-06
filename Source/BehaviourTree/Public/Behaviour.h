@@ -17,13 +17,19 @@ public:
 
 	Status tick()
 	{
-		if (EStatus != Running)
+		if (!OnEntered)
+		{
 			OnInitialize();
+			OnEntered = true;
+		}
 		
 		EStatus = OnUpdate();
 
 		if (EStatus != Running)
+		{
 			OnTerminate(EStatus);
+			OnEntered = false;
+		}
 
 		return EStatus;
 	};
@@ -48,4 +54,5 @@ protected:
 	
 private:
 	Status EStatus;
+	bool OnEntered {};
 };

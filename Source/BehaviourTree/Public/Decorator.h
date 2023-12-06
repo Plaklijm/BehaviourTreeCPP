@@ -12,7 +12,6 @@ class BEHAVIOURTREE_API Decorator : public Behaviour
 {
 public:
 	Decorator(Behaviour* child) : Child(child) {}
-	~Decorator();
 
 	virtual void SetBlackBoard(::BlackBoard* BB) override
 	{

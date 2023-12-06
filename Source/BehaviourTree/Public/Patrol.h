@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "Behaviour.h"
 
+class AAIController;
 /**
  * 
  */
@@ -14,9 +15,9 @@ private:
 	float MoveSpeed;
 	FVector TargetPosition;
 	FString TargetPosKey;
-	
+	AAIController* AI;
 public:
-	Patrol(float MoveSpeed, FString TargetPosKey);
+	Patrol(AAIController* AI, float MoveSpeed, FString TargetPosKey);
 	~Patrol();
 
 protected:

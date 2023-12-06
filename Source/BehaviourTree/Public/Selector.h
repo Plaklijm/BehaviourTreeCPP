@@ -27,10 +27,11 @@ protected:
 	{
 		while (true)
 		{
-			Status s = (*Current)->tick();
+			const Status s = (*Current)->tick();
 
 			if (s != Failed)
 				return s;
+			// TODO: Find another way to check if the end is reached
 			if (++Current == Children.end())
 				return Failed;
 		}
